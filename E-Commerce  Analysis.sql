@@ -93,7 +93,7 @@ FROM CleanedRetail
 GROUP BY Country
 ORDER BY Revenue DESC;
 
---6.Top 5 Best Sellers 
+--6.Top 5 Products By Revenue 
 
 SELECT TOP 5 Description, ROUND(SUM(Quantity * UnitPrice), 2) AS TotalRevenue,
 SUM(Quantity) AS TotalQuantity
@@ -101,15 +101,11 @@ FROM CleanedRetail
 GROUP BY Description
 ORDER BY TotalRevenue DESC;
 
---7.Bottom 5 Worst Sellers
+--7.Bottom 5 Products By Revenue
 SELECT TOP 5 Description, ROUND(SUM(Quantity * UnitPrice), 2) AS TotalRevenue,
 SUM(Quantity) AS TotalQuantity
 FROM CleanedRetail
 GROUP BY Description
 ORDER BY TotalRevenue;
 
-
-
-
-SELECT * FROM CleanedRetail;
 
