@@ -42,15 +42,12 @@ This project analyzes historical transaction data from an online retail store to
 ### 🔹 C. KPIs and Chart Requirements  
 
 #### 🧮 KPIs  
-- Total Revenue  
+- Total Revenue 
 - Total Quantity Sold  
-- Average Unit Price  
-- Top-Selling Products  
-- Average Order Value (AOV)  
-- Return Revenue  
-- Repeat Purchase Rate  
-- Customer Lifetime Value (CLV)  
-- Revenue by Country  
+- Average Unit Price
+- Average Basket Size
+- Average Order Value (AOV)
+- Return Rate 
 
 #### 📊 Chart Requirements  
  Top-Selling Products 
