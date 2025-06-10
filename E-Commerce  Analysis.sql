@@ -46,6 +46,21 @@ FROM ( SELECT InvoiceNo, SUM(Quantity) AS ItemCount
 SELECT ROUND(SUM(Quantity * UnitPrice) * 1.0 / COUNT(DISTINCT InvoiceNo), 2) AS Average_Order_Value
 FROM CleanedRetail;
 
+-- Return Rate = (Total Revenue from Returns) / (Total Revenue from All Sales)
+
+WITH TotalSales AS (SELECT SUM(Quantity * UnitPrice) AS Total_Revenue FROM OnlineRetail
+WHERE Quantity > 0 AND UnitPrice > 0 AND InvoiceNo NOT LIKE 'C%' AND CustomerID IS NOT NULL),
+
+TotalReturns AS (SELECT ABS(SUM(Quantity * UnitPrice)) AS Return_Revenue FROM OnlineRetail
+WHERE InvoiceNo LIKE 'C%' AND CustomerID IS NOT NULL)
+
+SELECT 
+  TR.Return_Revenue,
+  TS.Total_Revenue,
+  ROUND(TR.Return_Revenue * 100.0 / TS.Total_Revenue, 2) AS Return_Rate_Percentage
+FROM TotalSales TS, TotalReturns TR;
+
+
 
 --B Chart Requirement
 
