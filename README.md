@@ -1,5 +1,5 @@
 ## 📌 1. Project Title  
-**E-Commerce Online Sales Project**
+**E-Commerce Sales & Customer Retention Analysis**
 
 ---
 
